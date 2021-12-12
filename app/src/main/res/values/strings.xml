@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SIGNUP APP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addres">آدرس</string>
+    <string name="gavanin">قوانین و مقررات را قبول میکنم</string>
+    <string name="email">ایمیل</string>
+    <string name="sabt">ثبت نام</string>
+    <string name="phone">شماره تلفن همراه</string>
+    <string name="tpass">تکرار رمز عبور</string>
+    <string name="pass">رمز عبور</string>
+</resources>
