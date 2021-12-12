@@ -54,41 +54,70 @@ class singup : Fragment() {
         val txttpass = view.findViewById<EditText>(R.id.txttpass)
         val txtphone = view.findViewById<EditText>(R.id.txtphone)
         val txtaddress = view.findViewById<EditText>(R.id.txtaddress)
+        var txt = view.findViewById<TextView>(R.id.txt)
 
-        val txt = view.findViewById<TextView>(R.id.txt)
-        val txtchp = view.findViewById<TextView>(R.id.txtchp)
+        val bundle: Bundle = Bundle()
+
+        var sum1 = 1
+        var sum2 = 2
 
 
-        if (checkbox.isChecked)
-            txt.text = "1"
 
         btnsub.setOnClickListener {
 
-            if (txtphone.text.toString().startsWith("09"))
-                txtchp.text = "1"
+            var a: Boolean
+            var b: Boolean
+            var e: Boolean
+            var g: Boolean
 
-            if (txtemail.text.toString().equals(""))
-                Toast.makeText(requireContext(), "ایمیل خود را کامل وارد نمایید", Toast.LENGTH_SHORT).show()
-            if (txtpass.text.toString().equals(""))
-                Toast.makeText(requireContext(), "رمز عبور نمیتواند خالی بماند!", Toast.LENGTH_SHORT).show()
-            if (txttpass.text.toString().equals(""))
-                Toast.makeText(requireContext(), "رمز عبور خود را تکرار کنید", Toast.LENGTH_SHORT).show()
-            if (txtphone.text.toString().equals(""))
-                Toast.makeText(requireContext(), "شماره تلفن همراه خود را وارد کنید", Toast.LENGTH_SHORT).show()
-            if (txtphone.text.toString() == "")
-                Toast.makeText(requireContext(), "شماره تلفن همراه صحیح نیست!", Toast.LENGTH_SHORT).show()
-            if (txtaddress.text.toString().equals(""))
-                Toast.makeText(requireContext(), "آدرس (کد پستی) خود را وارد کنید", Toast.LENGTH_SHORT).show()
-            if (txt.text == "1")
-                Toast.makeText(requireContext(), "تیک قوانین و مقررات برای ثبت نام الزامیست", Toast.LENGTH_SHORT).show()
+            a = false
+            b = false
+            e = false
+            g = false
+
+                if (txtemail.text.toString().equals("") || txtpass.text.toString().equals("") || txttpass.text.toString().equals("") || txtphone.text.toString().equals("") || txtaddress.text.toString().equals("")) {
+                    Toast.makeText(requireContext(), "اطلاعات را به صورت کامل وارد کنید", Toast.LENGTH_SHORT).show()
+                    b = true
+
+                }
+
+                if (!txtpass.getText().toString().equals(txttpass.getText().toString())) {
+                    Toast.makeText(requireContext(), "رمز عبور را تایید کنید", Toast.LENGTH_SHORT).show()
+                    e = true
+
+                }
+
+                if (txtphone.text.toString().startsWith("09")) {
+                    g = true
+                }
+
+                if (g != true) {
+                    Toast.makeText(requireContext(), "شماره را به صورت صحیح وارد کنید", Toast.LENGTH_LONG).show()
+                }
+
+                if (checkbox.isChecked) {
+                    a = true
+                }
+
+                if (a != true) {
+                    Toast.makeText(requireContext(), "قبول قوانین و مقررات الزامیست!", Toast.LENGTH_LONG).show()
+                }
+
+            txt.text = a.toString() + g.toString() + b.toString() + e.toString()
+
+                if (txt.text.toString() == "truetruefalsefalse") {
+                    bundle.putString("info", txtemail.text.toString())
+                    bundle.putString("info2", txtpass.text.toString())
+                    bundle.putString("info3", txtphone.text.toString())
+                    bundle.putString("info4", txtaddress.text.toString())
+                    Toast.makeText(requireContext(), "خوش امدید", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.action_singup_to_showinfo, bundle)
+                }
 
 
-            if (txtphone.text.toString().startsWith("09")){
 
-
-
-            }
-
+        //
+//            b != true && a == true && g == true && e != true
 
         }
 

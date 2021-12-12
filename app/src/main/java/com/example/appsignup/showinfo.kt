@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +21,11 @@ class showinfo : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var info:String=""
+    private var info2:String=""
+    private var info3:String=""
+    private var info4:String=""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +33,14 @@ class showinfo : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        info=requireArguments().getString("info").toString()
+        info2=requireArguments().getString("info2").toString()
+        info3=requireArguments().getString("info3").toString()
+        info4=requireArguments().getString("info4").toString()
+
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +48,21 @@ class showinfo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_showinfo, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var txt1 = view.findViewById<TextView>(R.id.txt1)
+        var txt2 = view.findViewById<TextView>(R.id.txt2)
+        var txt3 = view.findViewById<TextView>(R.id.txt3)
+        var txt4 = view.findViewById<TextView>(R.id.txt4)
+
+        txt1.text = info
+        txt2.text = info2
+        txt3.text = info3
+        txt4.text = info4
+
     }
 
     companion object {

@@ -22,5 +22,14 @@
         <argument
             android:name="info"
             app:argType="string" />
+        <argument
+            android:name="info2"
+            app:argType="string" />
+        <argument
+            android:name="info3"
+            app:argType="string" />
+        <argument
+            android:name="info4"
+            app:argType="string" />
     </fragment>
 </navigation>
